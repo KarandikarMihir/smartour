@@ -1,0 +1,43 @@
+<?php
+if(!(isset($_COOKIE['SmarTourID'])) || !(isset($_COOKIE['SmarTourPW']))) 
+{
+    header("Location: login.php");
+    die();
+}
+?>
+<?php include 'Header.php'; ?>
+<div id="page-header" style="background-color:#eff4ff;width:100%;height:70px;"><span style="padding-left:30px;"><a href="javascript:history.go(-1)"><img src="images/back.png" width="30px" height="30px" alt=""></a></span><h1 style="display:inline;padding-left:10px">Home</h1></div>
+<div id="Margine" style="background-color:#eff4ff;width:100%;height:20px"></div>
+<div id="content" style="background-color:#eff4ff;height:384px;width:100%;display:inline-block;padding-left:70px;">
+    <p>Hi, <?php echo decrypt($_COOKIE['SmarTourID'], $Salt); ?>. We don't want to distract you, we just want to say Hi.</p>
+    <div style="height:40px"></div>
+    <div class="span4" style="float:left;">
+        <div class="span4 text-center place-left" style="background-color:#FFE6F0">
+        <br /><br />
+        <h2 class="fg-color-red">some enquiries still<br />might be hot</h2>
+        <p id="enqtrk">a quick glance at them</p>
+        <br />
+        <a href="enquiry_track.php"><h1><i class="icon-arrow-right-3 fg-color-red" title="You can manage your enquiries here"></i></h1></a>
+    </div>
+</div>
+<div class="span4" style="float:left;">
+    <div class="span4 text-center place-left bg-color-lighten">
+        <br /><br />
+        <h2 class="fg-color-purple">click here to check<br />who owes you</h2>
+        <p id="paychk">click here to proceed</p>
+        <br />
+        <a href="receipt_pending.php"><h1><i class="icon-arrow-right-3 fg-color-purple" title="Check your inbox or send messages"></i></h1></a>
+    </div>
+</div>
+<div class="span4" style="float:left;">
+    <div class="span4 text-center place-left" style="background-color:#D6F5D6">
+        <br /><br />
+        <h2 class="fg-color-green">feedbacks, indeed,<br />are important</h2>
+        <p id="feedbk">get ready to get criticized</p>
+        <br />
+        <a href="feedback.php"><h1><i class="icon-arrow-right-3 fg-color-green" title="Fill up pending feedback forms"></i></h1></a>
+    </div>
+</div>
+</div>
+</div>
+<?php include 'footer.html'; ?>

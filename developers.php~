@@ -1,0 +1,16 @@
+<?php include 'Header.php'; ?>
+<div id="page-header" style="background-color:#eff4ff;width:100%;height:70px;"><span style="padding-left:30px;"><a href="javascript:history.go(-1)"><img src="images/back.png" width="30px" height="30px" alt=""></a></span><h1 style="display:inline;padding-left:10px">Logic Labs</h1></div>
+<div id="Margine" style="background-color:#eff4ff;width:100%;height:20px"></div>
+<div id="content" style="background-color:#eff4ff;height:384px;width:100%;display:inline-block;padding-left:70px">
+    <p style="text-align:justify">Logic Labs is a collaborative hoax project by rookie developers Mihir Karandikar and Jitesh Deshpande.</p>
+    <div style="width:100%;height: 300px;overflow: auto;">
+        <div style="width:95%;">
+            <h2>Mihir Sudhir Karandikar</h2>
+            <p style="text-align:justify;">Mihir is from Pune. Mihir grew up obsessing over video games and computers. He is very reserved to himself. Some of Mihir's fondest memories are listening to music with his mother, working with his father in his advertising agency. When SmarTour presented itself, he knew he was helping to build something special and true to his heart. Outside of computers Mihir enjoys Psychedelic and Progressive Rock Music, being a crazy cat person and debating the current affairs in the nation with his family.</p>
+            <h2>Jitesh Ashish Deshpande</h2>
+            <p style="text-align:justify;">Jitesh is also from Pune. He is a gifted person - a deaf. He studied BCS at MACS College, Pune, focusing on contemporary dance rather than on studies. He has won many prizes in the dance competitions. One of his best qualities is PR. He can get along with almost anyone in this world. When Jitesh isn't working on SmarTour, you can "easily" find him with one of his hundreds of friend circles or spending time with his family and passing along his love of automobiles, dance, video games, animated movies and what not to his friends.</p>
+        </div>
+    </div>
+</div>
+</div>
+<?php include 'footer.html'; ?>

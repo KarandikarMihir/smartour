@@ -1,0 +1,29 @@
+
+<?php
+$iphone = strpos($_SERVER['HTTP_USER_AGENT'],"iPhone");
+$android = strpos($_SERVER['HTTP_USER_AGENT'],"Android");
+$palmpre = strpos($_SERVER['HTTP_USER_AGENT'],"webOS");
+$berry = strpos($_SERVER['HTTP_USER_AGENT'],"BlackBerry");
+$ipod = strpos($_SERVER['HTTP_USER_AGENT'],"iPod");
+
+if ($iphone || $android || $palmpre || $ipod || $berry == true) 
+    header('Location: mobile/');
+?>
+
+
+           /* function loadData(cmd) {
+                var xmlhttp;
+                xmlhttp=new XMLHttpRequest();
+                xmlhttp.onreadystatechange=function() {
+                    if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+                        document.getElementById("msgcnt").innerHTML=xmlhttp.responseText;
+                    }
+                    xmlhttp.open("GET","request.php?KEY="+cmd,true);
+                    xmlhttp.send(null);
+                }
+            }
+            loadData('fetchMsgCnt');*/
+
+            window.onload = function startrefresh(){
+                setTimeout('loadData(div,cmd,url)',1000);
+            }

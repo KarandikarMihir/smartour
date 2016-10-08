@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="shortcut icon" href="images/favicon_main.ico" type="image/x-icon">
+        <title>SmarTour Beta Release</title>
+        <link rel="stylesheet" type="text/css" href="css/main.css">
+        <script src="js/jquery.js"></script>
+        <script src="galleria/galleria-1.2.9.min.js"></script>
+	<script src="js/dropdown.js"></script>
+	<script src="js/input-control.js"></script>
+        <script src="js/accordion.js"></script>
+        <script src="js/validation.js"></script>
+        <script type="text/javascript">
+            function loadData(div,cmd,url){
+                var xmlHttp;
+                xmlHttp=new XMLHttpRequest(); 
+                
+                url+="?KEY="+cmd;
+                xmlHttp.onreadystatechange=function(){
+                    if(xmlHttp.readyState==4){
+                        document.getElementById(div).innerHTML=xmlHttp.responseText;
+                        setTimeout('loadData(div,cmd,url)',5000);
+                    }
+                }
+                xmlHttp.open("POST",url,true);
+                xmlHttp.send(null);
+            }
+            var obj=self.setInterval(function(){loadData('msgcnt','fetchMsgCnt','request.php')},3000);
+            var obj=self.setInterval(function(){loadData('feedbk','fetchFeedbk','request.php')},3000);
+            var obj=self.setInterval(function(){loadData('enqtrk','fetchEnqTrk','request.php')},3000);
+        </script>
+        <script type="text/javascript">
+            function loadResults(div,cmd,url,param){
+                var xmlHttp;
+                xmlHttp=new XMLHttpRequest(); 
+                url+="?KEY="+cmd+"&SearchParam="+param;
+                xmlHttp.onreadystatechange=function(){
+                    if(xmlHttp.readyState==4){
+                        document.getElementById(div).innerHTML=xmlHttp.responseText;
+                    }
+                }
+                xmlHttp.open("POST",url,true);
+                xmlHttp.send(null);
+            }
+        </script>
+        <script type="text/javascript">
+            function deleteRecord(recType,url,param,div){
+                var xmlHttp;
+                xmlHttp=new XMLHttpRequest(); 
+                url+="?KEY="+recType+"&SearchParam="+param;
+                xmlHttp.onreadystatechange=function(){
+                    if(xmlHttp.readyState==4){
+                        document.getElementById(div).innerHTML=xmlHttp.responseText;
+                    }
+                }
+                xmlHttp.open("POST",url,true);
+                xmlHttp.send(null);
+            }
+        </script>
+	<script type="text/javascript">
+            function newPopup(url) {
+                popupWindow = window.open(url,'popUpWindow','height=350,width=355,resizable=yes,scrollbars=no,toolbar=no,menubar=no,location=center,directories=no,status=yes,left=20,top=20')
+            }
+            function findTotal() {
+                var input1 = document.getElementById('input1').value;
+                var input2 = document.getElementById('input2').value;
+                var input3 = document.getElementById('input3').value;
+                var input4 = document.getElementById('input4').value;
+
+                var sum = parseInt(input1) + parseInt(input2) + parseInt(input3) + parseInt(input4);
+                document.getElementById('total').value = sum;
+            }
+            function findRefund() {
+                var input1 = document.getElementById('input1').value;
+                var input2 = document.getElementById('input2').value;
+                var input3 = document.getElementById('input3').value;
+                var input4 = document.getElementById('input4').value;
+                var input5 = parseInt(input1) - parseInt(input3);
+                var refund = parseInt(input3) - (parseInt(input2) + parseInt(input4));
+                document.getElementById('refund').value = refund;
+            }
+            function goBack() {
+                window.history.back()
+            }
+        </script>
+        <style>
+	</style>
+    </head>
+    <body class="metrouicss" style="background-image:url('images/background_stripes.gif');background-repeat:repeat;background-color: #ffffff;">
+        <div id="container" style="width:90%;margin:auto;">
+            <div id="header" style="background-color:#0f63c1;text-align:right;"><img src="images/SmarTour.png" height="100" width="260" alt="logo"></div>
+            <div class="nav-bar">
+                <div class="nav-bar-inner">
+                    <ul class="menu">
+                        <li><a href="index.php">Home</a>
+                        <li data-role="dropdown"><a href="javascript:;">Master</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="showcase.php">Showcase</a></li>
+                                <li><a href="hotel_master.php">Hotel Master</a></li>
+                                <li class="divider"></li>
+                                <li><a href="enquiry.php">Enquiry</a></li>
+                                <li><a href="application.php">Application</a></li>
+                                <li><a href="feedback.php">Feedback Form</a></li>
+                            </ul>
+                        </li>
+                        <li data-role="dropdown"><a href="javascript:;">Transaction</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="voucher_search.php">Voucher</a></li>
+                                <li><a href="receipt.php">Receipt</a></li>
+                                <li><a href="invoice_search.php">Invoice</a></li>
+                                <li><a href="cancellation.php">Cancellation</a></li>
+                                <li class="divider"></li>
+                                <li><a href="params.php">Parameters</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="googlemaps.php">Google Maps</a></li>
+                        <li data-role="dropdown"><a href="javascript:;">Housekeeping</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="dbms.php">Database Management</a></li>
+                                <li><a href="activity.php">Activity Log</a></li>
+                                <li><a href="userac.php">User Accounts</a></li>
+                                <li><a href="loginhistory.php">Login History</a></li>
+                            </ul>
+                        </li>
+                        <li data-role="dropdown"><a href="javascript:;">About</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="licenseinfo.php">License Info</a></li>
+                                <li><a href="appinfo.php">Application Info</a></li>
+                                <li><a href="libraries.php">Libraries</a></li>
+                                <li class="divider"></li>
+                                <li><a href="developers.php">Who we are</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="reportbugs.php">Report Bugs</a></li>
+                        <li><a href="help.php">Help</a></li>
+                        <li><a href="logout.php" onclick="return confirm('Click OK to confirm.')">Logout</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div id="wrapper">
+                <div id="Line-Filler" style="background-color:#eff4ff;width:100%;height:20px;"></div>
